@@ -1,134 +1,221 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>個人品牌作品集 | [你的名字]</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DormBreeze 宿舍安心吹 - 告別跳電危機的宿舍吹風機首選</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 導覽列 -->
-  <nav class="navbar">
-    <div class="logo">YOUR NAME</div>
-    <ul class="nav-links">
-      <li><a href="#hero">首頁</a></li>
-      <li><a href="#about">關於我</a></li>
-      <li><a href="#timeline">四年歷程</a></li>
-      <li><a href="#projects">精選作品</a></li>
-      <li><a href="#contact">聯絡我</a></li>
-    </ul>
-  </nav>
+    <!-- 1. 頂部導覽列 -->
+    <header>
+        <a href="#hero" class="logo-link">
+            <img src="images/logo.svg" alt="DormBreeze 宿舍安心吹品牌標誌" class="logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#watts-500">500W 極致安全專區</a></li>
+                <li><a href="#watts-800">800W 標準宿舍專區</a></li>
+                <li><a href="#quiet-rating">＜65dB 夜間靜音評測</a></li>
+                <li><a href="#logistics">配送與售後</a></li>
+                <li><a href="#faq">常見問題</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#group-buy" class="btn-secondary">校園團購優惠</a>
+            <a href="#cart" class="cart-link" aria-label="查看購物車">
+                <img src="images/icon-cart.svg" alt="購物車圖示">
+            </a>
+        </div>
+    </header>
 
-  <!-- 首頁區塊 (Hero) -->
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1>哈囉，我是 <span>[你的名字]</span></h1>
-      <p> [一句話定義你的個人 IP / 專業領域] </p>
-      <a href="#projects" class="btn">瀏覽我的作品</a>
-    </div>
-  </section>
+    <main>
+        <!-- 2. 主視覺區 -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>告別全寢跳電危機！宿舍/租屋族首選吹風機</h1>
+                <p>全系列通過嚴格低瓦數測試與 65dB 以下靜音實測，夜間吹頭安心不吵室友。</p>
+                <ul class="trust-badges">
+                    <li>
+                        <img src="images/icon-shield.svg" alt="安全防護圖示">
+                        <span>100% 宿舍插座相容承諾</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-quiet.svg" alt="靜音圖示">
+                        <span>全機型實測音量 ＜ 65dB</span>
+                    </li>
+                    <li>
+                        <img src="images/icon-shipping.svg" alt="免運圖示">
+                        <span>支援全台灣各大超商免運取貨</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-dryer.jpg" alt="宿舍專用低瓦數靜音吹風機產品形象圖">
+            </div>
+        </section>
 
-  <!-- 關於我 -->
-  <section id="about" class="section">
-    <h2>關於我</h2>
-    <div class="about-container">
-      <div class="profile-img">
-        <img src="https://via.placeholder.com/200" alt="大頭照">
-      </div>
-      <div class="about-text">
-        <p>這裡填寫你的簡短介紹、主修學系、個人特質與對未來的期望。</p>
-        <div class="skills">
-          <span class="skill-tag">技能 A</span>
-          <span class="skill-tag">技能 B</span>
-          <span class="skill-tag">技能 C</span>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- 3. 核心功能：瓦數快速切換與商品展示區 -->
+        <section id="products" class="products-section">
+            <h2>選擇您的宿舍限電瓦數</h2>
+            
+            <nav class="watt-tabs" aria-label="瓦數分類切換">
+                <ul>
+                    <li><a href="#watts-500" class="tab-item active">500W 極致安全款</a></li>
+                    <li><a href="#watts-800" class="tab-item">800W 標準宿舍款</a></li>
+                    <li><a href="#watts-custom" class="tab-item">自訂瓦數篩選</a></li>
+                </ul>
+            </nav>
 
-  <!-- 大學四年歷程 (Timeline) -->
-  <section id="timeline" class="section bg-alt">
-    <h2>大學四年歷程</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-date">大一 (2022 - 2023)</div>
-        <div class="timeline-content">
-          <h3>摸索與啟蒙</h3>
-          <p>加入社團、參加校內競賽、奠定基礎學科能力。</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">大二 (2023 - 2024)</div>
-        <div class="timeline-content">
-          <h3>進階實務與累積</h3>
-          <p>擔任社團幹部、執行第一個大型專案或跨領域學習。</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">大三 (2024 - 2025)</div>
-        <div class="timeline-content">
-          <h3>專案實作與實習</h3>
-          <p>完成畢業專案核心部分 / 企業實習 / 海外交流。</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">大四 (2025 - 2026)</div>
-        <div class="timeline-content">
-          <h3>成果整合與個人 IP 打造</h3>
-          <p>畢業展覽、論文撰寫、網站建置與求職/升學準備。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+            <!-- 500W 商品列表區塊 -->
+            <div id="watts-500" class="product-group">
+                <h3>500W 極致安全專區 (適用老舊宿舍與嚴格限電學舍)</h3>
+                <div class="product-grid">
+                    
+                    <!-- 商品 1 -->
+                    <article class="product-card">
+                        <img src="images/product-quiet.jpg" alt="【靜音首選】羽量折疊護髮吹風機 外觀圖" class="product-img">
+                        <div class="product-info">
+                            <span class="tag">靜音首選</span>
+                            <h4>【靜音首選】羽量折疊護髮吹風機</h4>
+                            <ul class="specs-list">
+                                <li><strong>額定功率：</strong>450W</li>
+                                <li><strong>實測音量：</strong>58dB</li>
+                                <li><strong>機身重量：</strong>320g</li>
+                            </ul>
+                            
+                            <div class="drying-time-table">
+                                <h5>乾髮時間實測預估：</h5>
+                                <ul>
+                                    <li><span>短髮/耳上：</span>約 3–4 分鐘</li>
+                                    <li><span>頭髮及肩：</span>約 7–8 分鐘</li>
+                                    <li><span>頭髮及腰：</span>約 11–12 分鐘</li>
+                                </ul>
+                            </div>
 
-  <!-- 精選作品集 -->
-  <section id="projects" class="section">
-    <h2>精選作品 / 專案</h2>
-    <div class="project-grid">
-      <!-- 作品 1 -->
-      <div class="project-card">
-        <img src="https://via.placeholder.com/350x200" alt="作品封面">
-        <div class="project-info">
-          <h3>專案名稱 01</h3>
-          <p>簡短說明這個專案解決了什麼問題或使用了什麼技術。</p>
-          <a href="#" class="project-link">查看詳情 &rarr;</a>
-        </div>
-      </div>
-      <!-- 作品 2 -->
-      <div class="project-card">
-        <img src="https://via.placeholder.com/350x200" alt="作品封面">
-        <div class="project-info">
-          <h3>專案名稱 02</h3>
-          <p>簡短說明這個專案解決了什麼問題或使用了什麼技術。</p>
-          <a href="#" class="project-link">查看詳情 &rarr;</a>
-        </div>
-      </div>
-      <!-- 作品 3 -->
-      <div class="project-card">
-        <img src="https://via.placeholder.com/350x200" alt="作品封面">
-        <div class="project-info">
-          <h3>專案名稱 03</h3>
-          <p>簡短說明這個專案解決了什麼問題或使用了什麼技術。</p>
-          <a href="#" class="project-link">查看詳情 &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
+                            <p class="selling-points">低頻柔音氣流、可 180 度折疊收納抽屜、附贈防燙風嘴。</p>
+                            
+                            <div class="card-bottom">
+                                <span class="price">NT$ 890</span>
+                                <div class="card-actions">
+                                    <a href="#product-detail-1" class="btn-outline">查看詳細規格</a>
+                                    <a href="#add-to-cart-1" class="btn-primary">加入購物車</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
 
-  <!-- 頁尾 / 聯絡資訊 -->
-  <footer id="contact" class="footer">
-    <h2>聯絡我</h2>
-    <p>歡迎與我交流合作或提供建議！</p>
-    <div class="social-links">
-      <a href="mailto:your-email@example.com">Email</a>
-      <a href="#" target="_blank">LinkedIn</a>
-      <a href="#" target="_blank">GitHub</a>
-      <a href="#" target="_blank">Instagram</a>
-    </div>
-    <p class="copyright">&copy; 2026 [你的名字]. All Rights Reserved.</p>
-  </footer>
+                    <!-- 商品 2 -->
+                    <article class="product-card">
+                        <img src="images/product-fast.jpg" alt="【速乾首選】宿舍極風大氣流吹風機 外觀圖" class="product-img">
+                        <div class="product-info">
+                            <span class="tag">速乾首選</span>
+                            <h4>【速乾首選】宿舍極風大氣流吹風機</h4>
+                            <ul class="specs-list">
+                                <li><strong>額定功率：</strong>500W</li>
+                                <li><strong>實測音量：</strong>62dB</li>
+                                <li><strong>機身重量：</strong>380g</li>
+                            </ul>
 
-  <script src="script.js"></script>
+                            <div class="drying-time-table">
+                                <h5>乾髮時間實測預估：</h5>
+                                <ul>
+                                    <li><span>短髮/耳上：</span>約 2–3 分鐘</li>
+                                    <li><span>頭髮及肩：</span>約 5–6 分鐘</li>
+                                    <li><span>頭髮及腰：</span>約 9–10 分鐘</li>
+                                </ul>
+                            </div>
+
+                            <p class="selling-points">專利集中風力倍熱技術、千萬級負離子順髮、不跳電安全保險絲。</p>
+
+                            <div class="card-bottom">
+                                <span class="price">NT$ 1,080</span>
+                                <div class="card-actions">
+                                    <a href="#product-detail-2" class="btn-outline">查看詳細規格</a>
+                                    <a href="#add-to-cart-2" class="btn-primary">加入購物車</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- 靜音評測延伸區塊 -->
+            <div id="quiet-rating" class="rating-anchor"></div>
+        </section>
+
+        <!-- 4. 宿舍配送與售後保障區 -->
+        <section id="logistics" class="logistics-section">
+            <h2>宿舍配送與安心售後保障</h2>
+            <div class="logistics-grid">
+                <article class="logistics-card">
+                    <img src="images/icon-store.svg" alt="超商取貨圖示">
+                    <h3>超商取貨免運</h3>
+                    <p>支援全家、7-11、萊爾富取貨，免去宿舍管理室代收與排隊尋找包裹的麻煩。</p>
+                </article>
+                <article class="logistics-card">
+                    <img src="images/icon-dorm.svg" alt="宿舍直送圖示">
+                    <h3>宿舍直送填寫</h3>
+                    <p>訂單支援備註「宿舍棟別與房號」，開學季配送潮直接安排送達宿舍樓下。</p>
+                </article>
+                <article class="logistics-card">
+                    <img src="images/icon-return.svg" alt="安心試吹圖示">
+                    <h3>7 天安心試吹</h3>
+                    <p>收到商品後於宿舍親自實測，若引發跳電或音量不符 65dB 承諾，無條件免費退換。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. 常見問題區 -->
+        <section id="faq" class="faq-section">
+            <h2>常見問題 FAQ</h2>
+            <div class="faq-list">
+                <details>
+                    <summary>500W 的吹風機真的不會讓宿舍跳電嗎？</summary>
+                    <p>是的！一般大學宿舍插座負載上限多為 800W–1000W，450W–500W 屬於極安全範圍，即使與檯燈、手機充電器同時使用也不會引發斷路器跳電。</p>
+                </details>
+                <details>
+                    <summary>預估乾髮時間是怎麼測出來的？</summary>
+                    <p>我們以一般頭髮密度在濕髮狀態下進行實測，提供短髮、及肩、及腰長度的真實吹乾時間，數據絕不誇大不實。</p>
+                </details>
+                <details>
+                    <summary>半夜 11 點後在寢室吹頭真的不會吵到室友嗎？</summary>
+                    <p>我們的全系列商品運轉噪音皆控制在 65dB 以下（相當於日常輕聲交談或辦公室背景音），比起市面上 80–90dB 的大功率吹風機可顯著降噪，有效維持寢室和諧。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. 頁尾 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>DormBreeze 宿舍安心吹</h4>
+                <p>專為學生宿舍與租屋族打造的極致安全、靜音吹風機品牌。</p>
+            </div>
+            <div class="footer-col">
+                <h4>學生專屬服務</h4>
+                <ul>
+                    <li><a href="#dcard-reviews">Dcard 開箱好評串</a></li>
+                    <li><a href="#student-discount">學生證驗證領取 9 折券</a></li>
+                    <li><a href="#group-buy">寢室揪團 4 人同行免運</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客戶服務與幫助</h4>
+                <ul>
+                    <li><a href="#line-support">LINE 官方客服 (10:00 - 22:00)</a></li>
+                    <li><a href="#warranty">全機一年保固條款</a></li>
+                    <li><a href="#privacy">隱私權與服務條款</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DormBreeze. All Rights Reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

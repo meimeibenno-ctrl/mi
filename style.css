@@ -1,227 +1,570 @@
-/* 基礎重置 */
-* {
+/* ==========================================================================
+   DormBreeze 宿舍安心吹 - 全站樣式表 (style.css)
+   ========================================================================== */
+
+/* 1. 全局變數與重置 (Variables & Reset) */
+:root {
+  /* 色彩系統 (Color Palette) */
+  --primary: #2a6f97;
+  --primary-dark: #014f86;
+  --primary-light: #e0f2fe;
+  --secondary: #e76f51;
+  --secondary-hover: #d65a3b;
+  --text-main: #2b2d42;
+  --text-muted: #6c757d;
+  --bg-main: #f8f9fa;
+  --bg-card: #ffffff;
+  --border-color: #e9ecef;
+  --focus-ring: #ff9f1c;
+
+  /* 間距與佈局 (Spacing & Layout) */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --max-width: 1200px;
+  --radius: 8px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
   line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
 }
 
-/* 導覽列 */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 8%;
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  position: fixed;
-  width: 100%;
+/* 鍵盤焦點可見性 (Focus Styles for Accessibility) */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 按鈕通用樣式 */
+.btn-primary, .btn-secondary, .btn-outline {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  color: #ffffff;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-light);
+}
+
+/* 2. 頂部導覽列 (Header) */
+header {
+  position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  flex-wrap: wrap; /* 允許導覽換行 */
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+  height: 40px;
+  width: auto;
 }
 
-.nav-links {
+header nav {
+  flex: 1 1 auto;
+}
+
+header nav ul {
   display: flex;
+  flex-wrap: wrap; /* 導覽選單可換行 */
   list-style: none;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #555;
-  margin-left: 2rem;
-  transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-  color: #007bff;
-}
-
-/* 首頁英雄區 */
-.hero {
-  height: 100vh;
-  display: flex;
+  gap: var(--spacing-xs) var(--spacing-md);
   justify-content: center;
+}
+
+header nav a {
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+}
+
+.header-actions {
+  display: flex;
   align-items: center;
-  text-align: center;
-  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-  padding: 0 20px;
+  gap: var(--spacing-sm);
 }
 
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
+.cart-link img {
+  width: 28px;
+  height: 28px;
 }
 
-.hero h1 span {
-  color: #0056b3;
+/* 3. 主視覺區 (Hero Section) */
+.hero-section {
+  max-width: var(--max-width);
+  margin: var(--spacing-lg) auto;
+  padding: 0 var(--spacing-md);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  align-items: center;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #444;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background: #007bff;
-  color: #fff;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: transform 0.2s, background 0.3s;
-}
-
-.btn:hover {
-  background: #0056b3;
-  transform: translateY(-3px);
-}
-
-/* 通用區塊 */
-.section {
-  padding: 5rem 10%;
-}
-
-.bg-alt {
-  background-color: #f0f4f8;
-}
-
-.section h2 {
-  text-align: center;
+.hero-content h1 {
   font-size: 2rem;
-  margin-bottom: 3rem;
-  position: relative;
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
 }
 
-/* 關於我 */
-.about-container {
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.trust-badges {
+  list-style: none;
   display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--spacing-xs);
 }
 
-.profile-img img {
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
+.trust-badges li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: 500;
+}
+
+.trust-badges img {
+  width: 24px;
+  height: 24px;
+}
+
+.hero-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 固定圖片比例 */
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* 4. 商品與頁籤區 (Products Section) */
+.products-section {
+  max-width: var(--max-width);
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+}
+
+.products-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.watt-tabs ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: var(--spacing-xs);
+}
+
+.tab-item {
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: var(--radius) var(--radius) 0 0;
+  color: var(--text-muted);
+}
+
+.tab-item.active, .tab-item:hover {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.product-group h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-dark);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 手機預設 1 欄 */
+  gap: var(--spacing-md);
+}
+
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 1:1 正方形產品圖比例 */
   object-fit: cover;
 }
 
-.skills {
-  margin-top: 1rem;
+.product-info {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.skill-tag {
-  display: inline-block;
-  background: #e1f0ff;
-  color: #007bff;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
+.tag {
+  align-self: flex-start;
+  background-color: var(--secondary);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.product-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.specs-list {
+  list-style: none;
+  background-color: var(--bg-main);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+}
+
+.drying-time-table {
+  background-color: var(--primary-light);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-sm);
+}
+
+.drying-time-table h5 {
   font-size: 0.9rem;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-/* 時間軸 */
-.timeline {
-  max-width: 800px;
-  margin: 0 auto;
-  border-left: 3px solid #007bff;
-  padding-left: 20px;
-}
-
-.timeline-item {
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.timeline-date {
-  font-weight: bold;
-  color: #007bff;
+  color: var(--primary-dark);
   margin-bottom: 0.3rem;
 }
 
-.timeline-content {
-  background: #fff;
-  padding: 1.2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+.drying-time-table ul {
+  list-style: none;
+  font-size: 0.85rem;
 }
 
-/* 作品集 */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+.drying-time-table li span {
+  font-weight: 600;
 }
 
-.project-card {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+.selling-points {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  flex: 1;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
+.card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-top: auto;
 }
 
-.project-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+.price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--secondary);
 }
 
-.project-info {
-  padding: 1.2rem;
+.card-actions {
+  display: flex;
+  gap: var(--spacing-xs);
 }
 
-.project-info h3 {
-  margin-bottom: 0.5rem;
+.card-actions a {
+  flex: 1;
+  font-size: 0.9rem;
+  padding: 0.5rem;
 }
 
-.project-link {
-  display: inline-block;
-  margin-top: 1rem;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
+/* 5. 配送與售後保障區 (Logistics Section) */
+.logistics-section {
+  background-color: #ffffff;
+  padding: var(--spacing-xl) var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
-/* 頁尾 */
-.footer {
+.logistics-section h2 {
   text-align: center;
-  padding: 3rem;
-  background: #222;
-  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-lg);
 }
 
-.social-links {
-  margin: 1.5rem 0;
+.logistics-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr; /* 手機預設 1 欄 */
+  gap: var(--spacing-md);
 }
 
-.social-links a {
-  color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
+.logistics-card {
+  text-align: center;
+  padding: var(--spacing-md);
+  background-color: var(--bg-main);
+  border-radius: var(--radius);
 }
 
-.copyright {
-  font-size: 0.8rem;
-  color: #888;
+.logistics-card img {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--spacing-xs);
+}
+
+.logistics-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.logistics-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* 6. 常見問題區 (FAQ Section) */
+.faq-section {
+  max-width: var(--max-width);
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+details {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--spacing-sm);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: var(--spacing-md);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+details[open] summary::after {
+  content: "−";
+}
+
+details p {
+  margin-top: var(--spacing-xs);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* 7. 頁尾 (Footer) */
+footer {
+  background-color: var(--text-main);
+  color: #ffffff;
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr; /* 手機預設 1 欄 */
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-light);
+}
+
+.footer-col p {
+  font-size: 0.9rem;
+  color: #adb5bd;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer-col a {
+  color: #adb5bd;
+  font-size: 0.9rem;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid #495057;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #adb5bd;
+}
+
+/* ==========================================================================
+   響應式斷點調整 (Responsive Breakpoints - 平板與桌面)
+   ========================================================================== */
+
+/* 平板斷點 (≥ 768px) */
+@media (min-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 平板改為 2 欄 */
+  }
+
+  .logistics-grid {
+    grid-template-columns: repeat(3, 1fr); /* 平板改為 3 欄 */
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr); /* 平板改為 3 欄 */
+  }
+
+  .card-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-actions {
+    flex: 2;
+  }
+}
+
+/* 桌面斷點 (≥ 1024px) */
+@media (min-width: 1024px) {
+  header {
+    flex-wrap: nowrap; /* 大螢幕導覽列不換行 */
+  }
+
+  .trust-badges {
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
 }
