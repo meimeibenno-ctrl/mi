@@ -1,0 +1,59 @@
+/* ========================================================== /
+/ 小動物樂園專屬外部樣式表 (style.css)                       /
+/ 風格：馬卡龍粉嫩兒童風、溫馨療癒、圓潤柔和                 /
+/ ========================================================== */
+
+/* STREAMING_CHUNK:Configuring Base Styles... */
+body {
+font-family: 'Quicksand', 'Noto Sans TC', sans-serif;
+background-color: #FFF9F5;
+color: #4A4A4A;
+margin: 0;
+padding: 0;
+-webkit-font-smoothing: antialiased;
+}
+
+/* STREAMING_CHUNK:Styling Components and Layouts... */
+.card-hover-effect {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-effect:hover {
+transform: translateY(-6px);
+box-shadow: 0 15px 30px -5px rgba(255, 182, 193, 0.4);
+}
+
+/* STREAMING_CHUNK:Styling Scrollbars... */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+
+::-webkit-scrollbar-track {
+background: #FFF9F5;
+}
+
+::-webkit-scrollbar-thumb {
+background: #FFD1DC;
+border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #FFB6C1;
+}
+
+/* STREAMING_CHUNK:Styling Badges and Buttons... */
+.badge-macaron {
+background: linear-gradient(135deg, #FFB6C1 0%, #FFD1DC 100%);
+color: #555;
+}
+
+.btn-primary-gradient {
+background: linear-gradient(135deg, #FF9AA2 0%, #FFB7B2 50%, #FFDAC1 100%);
+transition: all 0.2s ease;
+}
+
+.btn-primary-gradient:hover {
+opacity: 0.92;
+transform: scale(1.02);
+}
